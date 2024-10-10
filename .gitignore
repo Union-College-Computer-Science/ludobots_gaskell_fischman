@@ -136,7 +136,7 @@ dmypy.json
 # outputs
 
 # virtual environment
-csc323
+ludobots
 
 # backup dir
 backup_*

@@ -13,7 +13,7 @@ p.loadSDF("boxes.sdf")
 
 for i in range(0, 100000000000):
     p.stepSimulation()
-    time.sleep(0.001)
+    # time.sleep(0.00001)
     print(i)
 
 p.disconnect()

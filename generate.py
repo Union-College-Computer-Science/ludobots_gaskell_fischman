@@ -24,7 +24,7 @@ def Create_World():
     pyrosim.End()
 
 def Create_Robot():
-    pyrosim.Start_URDF("body.urdf")
+    pyrosim.Start_URDF("newbody.urdf")
     # Link0 = pyrosim.Send_Cube(name="Torso", pos=[0,0,0.5] , size=[1,1,1])
     # Link0_Link1 = pyrosim.Send_Joint(name = "Link0_Link1" , parent= "Torso" , child = "Leg1" , type = "revolute", position = [0,0,1.5])
     # Link1 = pyrosim.Send_Cube(name="Leg1", size = [1,1,1])
@@ -40,8 +40,8 @@ def Create_Robot():
     # Link6 = pyrosim.Send_Cube(name="Leg6", size = [1,1,1])
 
     Link1 = pyrosim.Send_Cube(name="Torso", pos=[0,0,1.5] , size=[1,1,1])
-    Link1_Link2 = pyrosim.Send_Joint(name = "Link1_Link2" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [1,0,0.5])
-    Link2 = pyrosim.Send_Cube(name="BackLeg", size=[1,1,1])
+    Link1_Link2 = pyrosim.Send_Joint(name = "Link1_Link2" , parent= "Torso" , child = "MyBackLeg" , type = "revolute", position = [1,0,0.5])
+    Link2 = pyrosim.Send_Cube(name="MyBackLeg", size=[1,1,1])
     Link2_Link3 = pyrosim.Send_Joint(name = "Link2_Link3" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [-1,0,0.5])
     Link3 = pyrosim.Send_Cube(name="FrontLeg", size=[1,1,1])
 

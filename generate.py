@@ -39,11 +39,11 @@ def Create_Robot():
     # Link5_Link6 = pyrosim.Send_Joint(name = "Link5_Link6" , parent= "Leg5" , child = "Leg6" , type = "revolute", position = [0,0,-1])
     # Link6 = pyrosim.Send_Cube(name="Leg6", size = [1,1,1])
 
-    Link1 = pyrosim.Send_Cube(name="Torso", pos=[1.5, 0, 1.5] , size=[1,1,1])
-    Link1_Link2 = pyrosim.Send_Joint(name = "Link1_Link2" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [1, 0, 1])
-    Link2 = pyrosim.Send_Cube(name="BackLeg", pos=[-0.5, 0, -0.5], size=[1,1,1])
-    Link1_Link3 = pyrosim.Send_Joint(name = "Link1_Link3" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [2, 0, 1])
-    Link3 = pyrosim.Send_Cube(name="FrontLeg", pos=[0.5, 0, -0.5], size=[1,1,1])
+    Torso = pyrosim.Send_Cube(name="Torso", pos=[1.5, 0, 1.5] , size=[1,1,1])
+    Torso_BackLeg = pyrosim.Send_Joint(name = "Torso_BackLeg" , parent= "Torso" , child = "BackLeg" , type = "revolute", position = [1, 0, 1])
+    BackLeg = pyrosim.Send_Cube(name="BackLeg", pos=[-0.5, 0, -0.5], size=[1,1,1])
+    Torso_FrontLeg = pyrosim.Send_Joint(name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [2, 0, 1])
+    FrontLeg = pyrosim.Send_Cube(name="FrontLeg", pos=[0.5, 0, -0.5], size=[1,1,1])
 
     pyrosim.End()
 

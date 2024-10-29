@@ -20,10 +20,11 @@ backLegSensorValues = np.zeros(iters)
 frontLegSensorValues = np.zeros(iters)
 
 amplitude = np.pi/4
-frequency = 1
+frequency = 7
 phaseOffset = 0
 
-targetAngles = amplitude * np.sin(np.linspace(np.pi, -np.pi, (frequency * iters) + phaseOffset))
+space = np.linspace(np.pi, -np.pi, iters)
+targetAngles = [amplitude * np.sin(frequency * i + phaseOffset) for i in space]
 
 np.save("data/targetAngles", targetAngles)
 
@@ -41,7 +42,7 @@ for i in range(0, iters):
 
     pyrosim.Set_Motor_For_Joint(bodyIndex=robotID, jointName="Torso_FrontLeg", controlMode =p.POSITION_CONTROL, targetPosition=targetAngles[i], maxForce=50)
 
-    time.sleep(0.001)
+    time.sleep(0.01)
 
 
 np.save("data/backLegSensor", backLegSensorValues)

@@ -7,50 +7,17 @@ from simulation import SIMULATION
 
 simulation = SIMULATION()
 
-# physicsClient = p.connect(p.GUI)
+backLegSensorValues = np.zeros(c.iters)
+frontLegSensorValues = np.zeros(c.iters)
 
-# p.setAdditionalSearchPath(pybullet_data.getDataPath())
+sin_vec = np.linspace(np.pi, -np.pi, c.iters)
 
-# p.setGravity(0,0,-9.8)
+FrontLeg_TargetAngles = [c.FrontLeg_amplitude * np.sin(c.FrontLeg_frequency * i + c.FrontLeg_phaseOffset) for i in sin_vec]
 
-# planeID = p.loadURDF("plane.urdf")
-# robotID = p.loadURDF("body.urdf")
+BackLeg_TargetAngles = [c.BackLeg_amplitude * np.sin(c.BackLeg_frequency * i + c.BackLeg_phaseOffset) for i in sin_vec]
 
-# p.loadSDF("world.sdf")
-# # testing new branch
+np.save("data/frontLegAngles", FrontLeg_TargetAngles)
+np.save("data/backLegAngles", BackLeg_TargetAngles)
 
-# backLegSensorValues = np.zeros(c.iters)
-# frontLegSensorValues = np.zeros(c.iters)
-
-# sin_vec = np.linspace(np.pi, -np.pi, c.iters)
-
-# FrontLeg_TargetAngles = [c.FrontLeg_amplitude * np.sin(c.FrontLeg_frequency * i + c.FrontLeg_phaseOffset) for i in sin_vec]
-
-# BackLeg_TargetAngles = [c.BackLeg_amplitude * np.sin(c.BackLeg_frequency * i + c.BackLeg_phaseOffset) for i in sin_vec]
-
-# np.save("data/frontLegAngles", FrontLeg_TargetAngles)
-# np.save("data/backLegAngles", BackLeg_TargetAngles)
-
-# pyrosim.Prepare_To_Simulate(robotID)
-# for i in range(0, c.iters):
-#     p.stepSimulation()
-
-#     pos = (np.pi/2)*random.uniform(-1,1)
-
-#     backLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-
-#     pyrosim.Set_Motor_For_Joint(bodyIndex=robotID, jointName="Torso_BackLeg", controlMode =p.POSITION_CONTROL, targetPosition=BackLeg_TargetAngles[i], maxForce=50)
-
-#     frontLegSensorValues[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-
-#     pyrosim.Set_Motor_For_Joint(bodyIndex=robotID, jointName="Torso_FrontLeg", controlMode =p.POSITION_CONTROL, targetPosition=FrontLeg_TargetAngles[i], maxForce=50)
-
-#     time.sleep(0.01)
-
-
-# np.save("data/backLegSensor", backLegSensorValues)
-# np.save("data/frontLegSensor", frontLegSensorValues)
-
-# p.disconnect()
-
-
+np.save("data/backLegSensor", backLegSensorValues)
+np.save("data/frontLegSensor", frontLegSensorValues)

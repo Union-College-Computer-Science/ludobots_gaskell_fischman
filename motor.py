@@ -1,3 +1,4 @@
-class MOTOR:
+class MOTOR():
+   
    def __init__(self):
     pass

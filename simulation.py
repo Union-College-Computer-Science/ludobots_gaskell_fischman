@@ -26,6 +26,8 @@ class SIMULATION():
     self.robot.Prepare_To_Act() #DAMN
 
   def run(self):
+    Angles_BackLeg = []
+    Angles_FrontLeg = []
     for i in range(0, c.iters):
       p.stepSimulation()
 
@@ -33,8 +35,17 @@ class SIMULATION():
 
       self.robot.Think()
       
-      self.robot.Act(i)
+      Angles = self.robot.Act()
+      Angles_BackLeg.append(Angles[0])
+      Angles_FrontLeg.append(Angles[0])
+
       time.sleep(0.01)
+
+    np.save("data/PartK/backLegSensor", self.robot.sensors['BackLeg'].values)
+    np.save("data/PartK/frontLegSensor", self.robot.sensors['FrontLeg'].values)
+
+    np.save("data/PartK/backLegMotorValues", Angles_BackLeg)
+    np.save("data/PartK/frontLegMotorValues", Angles_FrontLeg)
 
   def __del__(self):
     p.disconnect()

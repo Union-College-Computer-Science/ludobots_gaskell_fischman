@@ -22,10 +22,13 @@ class SIMULATION():
 
     pyrosim.Prepare_To_Simulate(self.robot.robotID)
 
+    self.robot.Prepare_To_Sense()
+
   def run(self):
     for i in range(0, c.iters):
       p.stepSimulation()
       time.sleep(0.01)
+      self.robot.Sense(i)
 
 
   def __del__(self):

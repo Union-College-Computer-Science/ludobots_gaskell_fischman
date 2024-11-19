@@ -4,7 +4,7 @@ import os
 
 plt.style.use('ggplot')
 
-backLegSensorValues = np.load(os.path.join(os.getcwd() , "data/backLegSensor.npy")) # Check with John since we don't know if this ref is okay
+backLegSensorValues = np.load(os.path.join(os.getcwd() , "data/backLegSensor.npy"))
 frontLegSensorValues = np.load(os.path.join(os.getcwd() , "data/frontLegSensor.npy"))
 FrontLeg_TargetAngles = np.load(os.path.join(os.getcwd() , "data/frontLegAngles.npy"))
 BackLeg_TargetAngles = np.load(os.path.join(os.getcwd() , "data/backLegAngles.npy"))

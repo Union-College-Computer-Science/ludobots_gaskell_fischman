@@ -23,6 +23,7 @@ class SIMULATION():
     pyrosim.Prepare_To_Simulate(self.robot.robotID)
 
     self.robot.Prepare_To_Sense()
+    self.robot.Prepare_To_Act() #DAMN
 
   def run(self):
     for i in range(0, c.iters):
@@ -31,7 +32,6 @@ class SIMULATION():
       self.robot.Sense(i)
       self.robot.Act(i)
       time.sleep(0.01)
-
 
   def __del__(self):
     p.disconnect()

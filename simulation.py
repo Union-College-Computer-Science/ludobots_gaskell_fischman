@@ -39,7 +39,7 @@ class SIMULATION():
       Angles_BackLeg.append(Angles[0])
       Angles_FrontLeg.append(Angles[0])
 
-      time.sleep(0.01)
+      time.sleep(0.1)
 
     np.save("data/PartK/backLegSensor", self.robot.sensors['BackLeg'].values)
     np.save("data/PartK/frontLegSensor", self.robot.sensors['FrontLeg'].values)
